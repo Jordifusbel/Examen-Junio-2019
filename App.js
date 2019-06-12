@@ -59,7 +59,7 @@ function FastBreakTruck(desayuno) {
                 console.log("Item: " + FleebJuice().nombre + ", Empaquetado: " + FleebJuice().empaquetado + ", Precio: " + FleebJuice().pvp)
             },
             "getCoste": function () {
-                return EyeHoles().pvp + FleebJuice().pvp;
+                return Smiggles().pvp + FleebJuice().pvp;
             }
         }
     }
@@ -106,8 +106,8 @@ function Plumbus() {
         "empaquetado": "caja"
     }
 }
-var eyeDes = new FastBreakTruck("Plumbus");
-FastBreakTruck.incluirJuguete(eyeDes);
-console.log("\nEyeholes con plumbus!");
-eyeDes.mostrarItems();
-console.log("Precio pedido: " + eyeDes.getCoste());
+// var eyeDes = new FastBreakTruck("Plumbus");
+// FastBreakTruck.incluirJuguete(eyeDes);
+// console.log("\nEyeholes con plumbus!");
+// eyeDes.mostrarItems();
+// console.log("Precio pedido: " + eyeDes.getCoste());
