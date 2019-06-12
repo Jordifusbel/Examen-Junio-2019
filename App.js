@@ -42,18 +42,32 @@ function FastBreakTruck(desayuno) {
     if (desayuno == "EyeHoles") {
         return {
             "pack": new Desayuno(),
+            "incluirJuguete": function () {
+                return {
+                    "plumbus": new Plumbus(),
+                }
+            },
             "mostrarItems": function () {
                 console.log("Item: " + EyeHoles().nombre + ", Empaquetado: " + EyeHoles().empaquetado + ", Precio: " + EyeHoles().pvp)
                 console.log("Item: " + TurbulentJuice().nombre + ", Empaquetado: " + TurbulentJuice().empaquetado + ", Precio: " + TurbulentJuice().pvp)
+                // if (typeof Plumbus() != undefined) {
+                    console.log("Item: " + Plumbus().nombre + ", Empaquetado: " + Plumbus().empaquetado + ", Precio: " + Plumbus().pvp)
+                // }
             },
             "getCoste": function () {
-                return EyeHoles().pvp + TurbulentJuice().pvp;
+                // if (typeof Plumbus() != undefined) {
+                    return EyeHoles().pvp + TurbulentJuice().pvp + Plumbus().pvp;
+                // } else {
+                //     return EyeHoles().pvp + TurbulentJuice().pvp;
+                // }
             }
+
         }
     }
     if (desayuno == "Smiggles") {
         return {
             "pack": new Desayuno(),
+            "tienePlumbus": false,
             "mostrarItems": function () {
                 console.log("Item: " + Smiggles().nombre + ", Empaquetado: " + Smiggles().empaquetado + ", Precio: " + Smiggles().pvp)
                 console.log("Item: " + FleebJuice().nombre + ", Empaquetado: " + FleebJuice().empaquetado + ", Precio: " + FleebJuice().pvp)
@@ -63,10 +77,9 @@ function FastBreakTruck(desayuno) {
             }
         }
     }
-    
+
 }
 var eyeDes = new FastBreakTruck("EyeHoles");
-console.log(Desayuno);
 console.log("\nNo abras la caja de Eyeholes!");
 eyeDes.mostrarItems();
 console.log("Precio pedido: " + eyeDes.getCoste());
@@ -106,8 +119,8 @@ function Plumbus() {
         "empaquetado": "caja"
     }
 }
-// var eyeDes = new FastBreakTruck("Plumbus");
-// FastBreakTruck.incluirJuguete(eyeDes);
-// console.log("\nEyeholes con plumbus!");
-// eyeDes.mostrarItems();
-// console.log("Precio pedido: " + eyeDes.getCoste());
+var eyeDes = new FastBreakTruck("EyeHoles");
+eyeDes.incluirJuguete("eyeDes");
+console.log("\nEyeholes con plumbus!");
+eyeDes.mostrarItems();
+console.log("Precio pedido: " + eyeDes.getCoste());
