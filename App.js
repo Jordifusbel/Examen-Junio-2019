@@ -124,17 +124,3 @@ eyeDes.mostrarItems();
 console.log("Precio pedido: " + eyeDes.getCoste());
 
 //SEGUNDA PARTE DEL EXAMEN
-
-let Utils = function () {
-    return {
-        searchClass: function (className) {
-            return document.getElementsByClassName(className);
-        }
-    }
-}();
-getMenu = function () {
-    console.log("Hola?");
-    localStorage.setItem({"quiere menu": "si"})
-};
-new function () {
-}();

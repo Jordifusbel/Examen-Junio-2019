@@ -1,1 +1,1 @@
-https://github.com/Jordifusbel/Examen-Junio-2019.git
+Examen Junio 2019, con 2 partes
