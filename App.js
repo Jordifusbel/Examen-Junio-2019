@@ -23,8 +23,8 @@ function EyeHoles() {
 function TurbulentJuice() {
     return {
         "nombre": "Turbulent Juice",
-        "pvp": 25,
-        "empaquetado": "caja"
+        "pvp": 30,
+        "empaquetado": "tubo"
     }
 }
 
@@ -51,6 +51,19 @@ function FastBreakTruck(desayuno) {
             }
         }
     }
+    if (desayuno == "Smiggles") {
+        return {
+            "pack": new Desayuno(),
+            "mostrarItems": function () {
+                console.log("Item: " + Smiggles().nombre + ", Empaquetado: " + Smiggles().empaquetado + ", Precio: " + Smiggles().pvp)
+                console.log("Item: " + FleebJuice().nombre + ", Empaquetado: " + FleebJuice().empaquetado + ", Precio: " + FleebJuice().pvp)
+            },
+            "getCoste": function () {
+                return EyeHoles().pvp + TurbulentJuice().pvp;
+            }
+        }
+    }
+    
 }
 var eyeDes = new FastBreakTruck("EyeHoles");
 console.log(Desayuno);
@@ -58,14 +71,30 @@ console.log("\nNo abras la caja de Eyeholes!");
 eyeDes.mostrarItems();
 console.log("Precio pedido: " + eyeDes.getCoste());
 
+
 /**
  * Desayuno Smiggles
  */
 
-    // var smigDes = new FastBreakTruck(prepararSmiggles);
-    // console.log("\nSmiggles per als nins!");
-    // smigDes.mostrarItems();
-    // console.log("Precio pedido: " + smigDes.getCoste());
+function Smiggles() {
+    return {
+        "nombre": "Smiggles",
+        "pvp": 50,
+        "empaquetado": "caja"
+    }
+}
+function FleebJuice() {
+    return {
+        "nombre": "Fleeb Juice",
+        "pvp": 35,
+        "empaquetado": "tubo"
+    }
+}
+
+var smigDes = new FastBreakTruck("Smiggles");
+console.log("\nSmiggles per als nins!");
+smigDes.mostrarItems();
+console.log("Precio pedido: " + smigDes.getCoste());
 
 /**
  * Plumbus
