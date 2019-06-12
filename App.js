@@ -42,24 +42,22 @@ function FastBreakTruck(desayuno) {
     if (desayuno == "EyeHoles") {
         return {
             "pack": new Desayuno(),
-            "incluirJuguete": function () {
-                return {
-                    "plumbus": new Plumbus(),
-                }
+            "incluirJuguete": function (nombre, juguete) {
+                this[nombre.toLowerCase()] = juguete;
             },
             "mostrarItems": function () {
                 console.log("Item: " + EyeHoles().nombre + ", Empaquetado: " + EyeHoles().empaquetado + ", Precio: " + EyeHoles().pvp)
                 console.log("Item: " + TurbulentJuice().nombre + ", Empaquetado: " + TurbulentJuice().empaquetado + ", Precio: " + TurbulentJuice().pvp)
-                // if (typeof Plumbus() != undefined) {
-                    console.log("Item: " + Plumbus().nombre + ", Empaquetado: " + Plumbus().empaquetado + ", Precio: " + Plumbus().pvp)
-                // }
+                if (this['plumbus'] != undefined) {
+                console.log("Item: " + Plumbus().nombre + ", Empaquetado: " + Plumbus().empaquetado + ", Precio: " + Plumbus().pvp)
+                }
             },
             "getCoste": function () {
-                // if (typeof Plumbus() != undefined) {
-                    return EyeHoles().pvp + TurbulentJuice().pvp + Plumbus().pvp;
-                // } else {
-                //     return EyeHoles().pvp + TurbulentJuice().pvp;
-                // }
+                if (this['plumbus'] != undefined) {
+                return EyeHoles().pvp + TurbulentJuice().pvp + Plumbus().pvp;
+                } else {
+                    return EyeHoles().pvp + TurbulentJuice().pvp;
+                }
             }
 
         }
@@ -120,7 +118,23 @@ function Plumbus() {
     }
 }
 var eyeDes = new FastBreakTruck("EyeHoles");
-eyeDes.incluirJuguete("eyeDes");
+eyeDes.incluirJuguete("plumbus", new Plumbus());
 console.log("\nEyeholes con plumbus!");
 eyeDes.mostrarItems();
 console.log("Precio pedido: " + eyeDes.getCoste());
+
+//SEGUNDA PARTE DEL EXAMEN
+
+let Utils = function () {
+    return {
+        searchClass: function (className) {
+            return document.getElementsByClassName(className);
+        }
+    }
+}();
+getMenu = function () {
+    console.log("Hola?");
+    localStorage.setItem({"quiere menu": "si"})
+};
+new function () {
+}();
